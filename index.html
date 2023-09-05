@@ -45,6 +45,7 @@
         .container {
             background: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
             padding: 20px;
+            border: 2px solid #333;
             text-align: center;
             border-radius: 10px;
             width: 300px; /* Set a fixed width */
@@ -100,13 +101,13 @@
 
     <!-- Container for the text boxes and submit button -->
     <div class="container" id="form-container">
-        <h2>Bug Report WIP</h2>
-        <form id="bug-report-form">
+        <h2>Report Bug</h2>
+        <form id="bug-report-form" action="https://russian.snow-rentaroren.repl.co/report.php" method="post" target="dummy">
             <!-- Text box for the name -->
-            <input type="text" placeholder="NameTest" required>
+            <input type="text" placeholder="Name or Callsign" name="name" required>
             <br>
             <!-- Text box for bug reports -->
-            <textarea placeholder="Not functional yet" rows="3" required></textarea>
+            <textarea placeholder="Report a bug" rows="3" name="report" required></textarea>
             <br>
             <!-- Submit button -->
             <input type="submit" value="Submit">
@@ -117,16 +118,21 @@
             <img src="monarc.png" alt="Monarc" class="monarc-image">
         </div>
     </div>
+
+    <iframe name="dummy" id="dummy" style="display: none"></iframe>
     
     <script>
-        // JavaScript to show the thank you message and hide text boxes after submission
+       
+      
+      // JavaScript to show the thank you message and hide text boxes after submission
         document.getElementById('bug-report-form').addEventListener('submit', function (e) {
-            e.preventDefault(); // Prevent default form submission
+            // e.preventDefault(); // Prevent default form submission
             document.querySelector('.thank-you').style.display = 'block'; // Show thank you message
             document.querySelector('input[type="text"]').style.display = 'none'; // Hide the name box
             document.querySelector('textarea').style.display = 'none'; // Hide the bug box
             document.querySelector('input[type="submit"]').style.display = 'none'; // Hide the submit button
         });
+        
     </script>
 </body>
 </html>
